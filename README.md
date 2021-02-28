@@ -1,6 +1,6 @@
 # Default project for web using Webpack and its features
 
-This project is based on web-pack basic configs for simple development using ReactJS. It also a little push with tremendous effort to me towards using new tools for webdev.
+This project is based on webpack basic configs for simple development using ReactJS. It also a little push with tremendous effort to me towards using new tools for webdev.
 
 In this topic I'll try starting use:
   - Webpack
