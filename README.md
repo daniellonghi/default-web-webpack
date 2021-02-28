@@ -8,4 +8,4 @@ In this topic I'll try starting use:
   - SCSS compiler
   - Bootstrap (CSS and JS)
  
-As soon as I use new techs, I'll updating the list.'
+As soon as I use new techs, I'll updating the list.
