@@ -1,4 +1,5 @@
 const {merge} = require("webpack-merge");
+const { DefinePlugin } = require('webpack');
 const path = require("path");
 const commonWebpackConfig = require("./webpack.common.config");
 
@@ -8,6 +9,12 @@ module.exports = merge(commonWebpackConfig, {
         path: path.resolve(__dirname, "build"),
         filename: "main.js"
     },
+    plugins: [
+        new DefinePlugin({ 
+            'process.env.NODE_ENV': JSON.stringify('development')
+        }),
+    ],
+    devtool: 'eval-source-map',
     module: {
         rules: [
             {

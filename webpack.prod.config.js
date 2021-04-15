@@ -1,5 +1,7 @@
 const {merge} = require("webpack-merge");
+const { DefinePlugin } = require('webpack');
 const path = require("path");
+const TerserPlugin = require('terser-webpack-plugin');
 const commonWebpackConfig = require("./webpack.common.config");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -8,14 +10,20 @@ module.exports = merge(commonWebpackConfig, {
     mode: "production",
     output: {
         path: path.resolve(__dirname, "build"),
-        filename: "[name].[contenthash].bundle.js",
+        filename: "[name].[contenthash].main.js",
     },
     plugins: [
         new MiniCssExtractPlugin({
             filename: "[name].[contenthash].css"
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new DefinePlugin({ 
+            'process.env.NODE_ENV': JSON.stringify('production')
+        })
     ],
+    optimization: {
+        minimizer: [new TerserPlugin()],
+    },
     module : {
         rules: [
             {
